@@ -14,7 +14,7 @@ namespace AsurityTest.Models
         }
 
         // Required for xUnit equality testing:
-        public override bool Equals(object? obj)
+        public override bool Equals(object obj)
         {
             TestResult comp = obj as TestResult;
             if (comp == null)
