@@ -26,7 +26,9 @@ namespace AsurityTest
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IStateTest, StateTest>();
-            services.AddControllers().AddNewtonsoftJson();
+            services.AddControllers()
+                // Use Newtonsoft for better default JSON support:
+                .AddNewtonsoftJson();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

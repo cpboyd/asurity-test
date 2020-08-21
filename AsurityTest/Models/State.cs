@@ -21,16 +21,19 @@ namespace AsurityTest.Models
             var total = input.Total;
             var type = input.Type;
             
+            // Check if tests should run:
             if (!ShouldRunTests(total, type))
             {
                 yield break;
             }
             
+            // Check APR if required by state:
             if (ShouldVerify(TestType.Apr))
             {
                 yield return new TestResult(TestType.Apr, VerifyApr(input.Apr, type, input.IsPrimary));
             }
 
+            // Check fees if required by state:
             if (ShouldVerify(TestType.Fee))
             {
                 yield return new TestResult(TestType.Fee, VerifyFees(input.Fees, total));
